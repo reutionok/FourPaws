@@ -14,21 +14,30 @@ footer {
     background-color: #5C821A;
 }
 
-.container {
+.content {
     padding-top: 15px;
+    padding-bottom:15px;
 }
     .navbar-brand {
     font-family: cursive;
     font-size:30px;
 }
 
-.carousel-item {
+.btn-primary {
+    background-color: #f69454;
+    border-color:#ee693f;
+}
+
+a {
+    color: #ee693f;
+}
+    .carousel-item {
     height: 75vh;
     min-height: 300px;
     background: no-repeat center center scroll;
     /*-webkit-background-size: cover;
-    -moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
     background-size: cover;
 }
 

@@ -1,4 +1,5 @@
 ﻿using FourPaws.Domain.Abstract;
+using FourPaws.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace FourPaws.WebUI.Controllers
     public class AnimalController : Controller
     {
         private IAnimalRepository repository;
+        public int pageSize = 6;
 
         public AnimalController(IAnimalRepository repo )
         {
@@ -17,9 +19,22 @@ namespace FourPaws.WebUI.Controllers
            
         }
 
-        public ViewResult List()
+        public ViewResult List(int page = 1)
         {
-            return View(repository.Animals);
+            AnimalListViewModel model = new AnimalListViewModel
+            {
+               Animals = repository.Animals
+                    .OrderBy(an => an.AnimalId)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = repository.Animals.Count()
+                }
+            };
+            return View(model);
         }
     }
    

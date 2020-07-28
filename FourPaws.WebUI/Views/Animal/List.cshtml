@@ -1,10 +1,29 @@
-﻿@using FourPaws.Domain.Entities
-@model IEnumerable<Animal>
+﻿@using FourPaws.WebUI.Models
+@using FourPaws.WebUI.HtmlHelpers
+@model AnimalListViewModel
 
-@foreach (var p in @Model)
-{
-    <div>
-        <h3>@p.Name</h3>
 
-    </div>
-}
+
+
+<div class="row">
+    @foreach (var a in @Model.Animals)
+    {
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">@a.Name</a>
+                        @*<span class="pull-right label label-primary">Коти</span>*@
+                    </h4>
+                    <p class="card-text">
+                        <b>Вік: </b>@a.Age<br><b>Місто: </b>@a.City<br><b>Опис:</b> @a.Description<br><b>Контакти:</b> @a.Contacts
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
