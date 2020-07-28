@@ -5,15 +5,30 @@
  */
 body {
     padding-top: 56px;
+    background-color:#cdf8a7;
+}
+nav {
+    background-color:#5C821A;
+ }
+footer {
+    background-color: #5C821A;
+}
+
+.container {
+    padding-top: 15px;
+}
+    .navbar-brand {
+    font-family: cursive;
+    font-size:30px;
 }
 
 .carousel-item {
-    height: 65vh;
+    height: 75vh;
     min-height: 300px;
     background: no-repeat center center scroll;
     /*-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;*/
+    -moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
     background-size: cover;
 }
 
