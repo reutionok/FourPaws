@@ -1,0 +1,10 @@
+﻿@using FourPaws.Domain.Entities
+@model IEnumerable<Animal>
+
+@foreach (var p in @Model)
+{
+    <div>
+        <h3>@p.Name</h3>
+
+    </div>
+}
